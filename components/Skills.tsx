@@ -1,6 +1,7 @@
-import { Card, CardBody, CardFooter, CardHeader, Chip } from "@nextui-org/react"
 import clsx from "clsx"
 import { CloudIcon, Square3Stack3DIcon } from "@heroicons/react/24/solid"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./ui/card"
+import { Badge } from "./ui/badge"
 
 type SkillProps = {
   title: string
@@ -15,22 +16,28 @@ const Skill: React.FC<SkillProps> = ({
   icon,
   children,
 }) => {
-  const techChips = techs.map((tech) => <Chip key={tech}>{tech}</Chip>)
+  const techBadges = techs.map((tech) => (
+    <Badge variant="secondary" key={tech}>
+      {tech}
+    </Badge>
+  ))
 
   return (
     <Card className={clsx(className, "p-2")}>
       <CardHeader>
-        <div className="rounded-full bg-default-800 w-8 h-8 p-1 flex items-center mr-4">
-          {icon}
-        </div>
+        <CardTitle className="flex items-center">
+          <div className="rounded-full bg-neutral-200 w-8 h-8 p-1 flex items-center mr-4">
+            {icon}
+          </div>
 
-        <h2 className="text-lg font-semibold">{title}</h2>
+          <div className="text-lg font-semibold">{title}</div>
+        </CardTitle>
       </CardHeader>
 
-      <CardBody>{children}</CardBody>
+      <CardContent>{children}</CardContent>
 
       <CardFooter>
-        <div className="flex flex-wrap gap-x-2 gap-y-2">{techChips}</div>
+        <div className="flex flex-wrap gap-x-2 gap-y-2">{techBadges}</div>
       </CardFooter>
     </Card>
   )

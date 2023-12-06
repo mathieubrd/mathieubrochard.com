@@ -1,8 +1,8 @@
 import capgeminiLogo from "@/public/capgemini.png"
 import sopraSteriaLogo from "@/public/sopra-steria.png"
-import { Chip } from "@nextui-org/react"
 import clsx from "clsx"
 import Image, { StaticImageData } from "next/image"
+import { Badge } from "./ui/badge"
 
 type ExperienceProps = {
   icon: StaticImageData
@@ -27,11 +27,11 @@ const Experience: React.FC<ExperienceProps> = ({
 
       <div className="ml-2">
         <div className="flex items-center mb-1 justify-between">
-          <span className="text-lg font-semibold text-white">
+          <span className="text-lg font-semibold text-neutral-100">
             {companyName}
           </span>
 
-          <span className="text-sm font-medium me-2 px-2.5 py-0.5 rounded bg-blue-600 text-white ms-3">
+          <span className="text-sm font-medium me-2 px-2.5 py-0.5 rounded bg-blue-600 text-neutral-100 ms-3">
             {date}
           </span>
         </div>
@@ -49,14 +49,14 @@ export const ExperienceTimeline: React.FC<
 > = ({ className }) => {
   return (
     <div className={className}>
-      <ol className="relative border-s border-gray-700 space-y-10">
+      <ol className="relative border-s border-neutral-700 space-y-10">
         <Experience
           companyName="Capgemini"
           icon={capgeminiLogo}
           jobName="AWS Architect & DevOps Engineer"
           date="2020 - now"
         >
-          <ul className="text-gray-400 space-y-4">
+          <ul className="text-neutral-400 space-y-4">
             <li>
               <b>Airbus</b>
 
@@ -67,12 +67,12 @@ export const ExperienceTimeline: React.FC<
               </p>
 
               <div className="flex gap-2 flex-wrap">
-                <Chip size="sm">AWS</Chip>
-                <Chip size="sm">AppSync</Chip>
-                <Chip size="sm">Lambda</Chip>
-                <Chip size="sm">Typescript</Chip>
-                <Chip size="sm">React</Chip>
-                <Chip size="sm">GraphQL</Chip>
+                <Badge variant="secondary">AWS</Badge>
+                <Badge variant="secondary">AppSync</Badge>
+                <Badge variant="secondary">Lambda</Badge>
+                <Badge variant="secondary">Typescript</Badge>
+                <Badge variant="secondary">React</Badge>
+                <Badge variant="secondary">GraphQL</Badge>
               </div>
             </li>
 
@@ -86,10 +86,10 @@ export const ExperienceTimeline: React.FC<
               </p>
 
               <div className="flex gap-2 flex-wrap">
-                <Chip size="sm">Azure</Chip>
-                <Chip size="sm">Azure Monitor</Chip>
-                <Chip size="sm">Elastic</Chip>
-                <Chip size="sm">QRadar</Chip>
+                <Badge variant="secondary">Azure</Badge>
+                <Badge variant="secondary">Azure Monitor</Badge>
+                <Badge variant="secondary">Elastic</Badge>
+                <Badge variant="secondary">QRadar</Badge>
               </div>
             </li>
           </ul>
@@ -101,7 +101,7 @@ export const ExperienceTimeline: React.FC<
           jobName="Cybersecurity Engineer"
           date="2018 - 2020"
         >
-          <ul className="text-gray-400 space-y-4">
+          <ul className="text-neutral-400 space-y-4">
             <li>
               <b>Airbus</b>
 
@@ -113,12 +113,12 @@ export const ExperienceTimeline: React.FC<
               </p>
 
               <div className="flex gap-2 flex-wrap">
-                <Chip size="sm">SCAP</Chip>
-                <Chip size="sm">DSC</Chip>
-                <Chip size="sm">AWS</Chip>
-                <Chip size="sm">Python</Chip>
-                <Chip size="sm">Jenkins</Chip>
-                <Chip size="sm">Packer</Chip>
+                <Badge variant="secondary">SCAP</Badge>
+                <Badge variant="secondary">DSC</Badge>
+                <Badge variant="secondary">AWS</Badge>
+                <Badge variant="secondary">Python</Badge>
+                <Badge variant="secondary">Jenkins</Badge>
+                <Badge variant="secondary">Packer</Badge>
               </div>
             </li>
 
@@ -132,11 +132,11 @@ export const ExperienceTimeline: React.FC<
               </p>
 
               <div className="flex gap-2 flex-wrap">
-                <Chip size="sm">AWS</Chip>
-                <Chip size="sm">Splunk</Chip>
-                <Chip size="sm">CloudWatch</Chip>
-                <Chip size="sm">CloudTrail</Chip>
-                <Chip size="sm">AWS Kinesis</Chip>
+                <Badge variant="secondary">AWS</Badge>
+                <Badge variant="secondary">Splunk</Badge>
+                <Badge variant="secondary">CloudWatch</Badge>
+                <Badge variant="secondary">CloudTrail</Badge>
+                <Badge variant="secondary">AWS Kinesis</Badge>
               </div>
             </li>
           </ul>

@@ -1,12 +1,20 @@
 "use client"
 
-import { submitContactForm } from "@/app/actions"
-import { EnvelopeIcon, HeartIcon } from "@heroicons/react/24/solid"
-import { Button, Input, Textarea } from "@nextui-org/react"
 import clsx from "clsx"
-import { useFormState, useFormStatus } from "react-dom"
-
-type ContactFormProps = {} & React.HTMLAttributes<HTMLDivElement>
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "./ui/form"
+import { Input } from "./ui/input"
+import { Textarea } from "./ui/textarea"
+import { Button } from "./ui/button"
+import { EnvelopeIcon } from "@heroicons/react/24/solid"
+import { submitContactForm } from "@/app/actions"
+import { useFormState } from "react-dom"
 
 export const ContactForm: React.FC<ContactFormProps> = ({
   className,
@@ -16,107 +24,66 @@ export const ContactForm: React.FC<ContactFormProps> = ({
 
   return (
     <div className={clsx(className, "w-full")} {...props}>
-      <form action={formAction} className="mx-auto">
-        <div className="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2">
-          <Input
-            type="text"
-            name="firstName"
-            autoComplete="given-name"
-            placeholder="Walter"
-            label="First name"
-            isRequired
-            isDisabled={state?.success}
-            errorMessage={state?.errors?.firstName?._errors}
-            size="sm"
-          />
+      <form action={formAction}>
+        <div className="grid grid-cols-2 gap-x-4 gap-y-4">
+          <FormItem className="col-span-2 sm:col-span-1">
+            <FormLabel>Firstname</FormLabel>
 
-          <Input
-            type="text"
-            name="lastName"
-            autoComplete="family-name"
-            placeholder="Sobchack"
-            label="Last name"
-            isRequired
-            isDisabled={state?.success}
-            errorMessage={state?.errors?.lastName?._errors}
-            size="sm"
-          />
+            <FormControl>
+              <Input placeholder="Walter" />
+            </FormControl>
 
-          <div className="sm:col-span-2">
-            <Input
-              type="text"
-              name="company"
-              autoComplete="organization"
-              label="Company"
-              placeholder="Hollywood Star Lanes"
-              isDisabled={state?.success}
-              errorMessage={state?.errors?.company?._errors}
-              size="sm"
-            />
-          </div>
+            <FormMessage />
+          </FormItem>
 
-          <div className="sm:col-span-2">
-            <Input
-              type="email"
-              name="email"
-              autoComplete="email"
-              placeholder="walter.sobchak@overtheline.com"
-              label="email"
-              isRequired
-              isDisabled={state?.success}
-              errorMessage={state?.errors?.email?._errors}
-              size="sm"
-            />
-          </div>
+          <FormItem className="col-span-2 sm:col-span-1">
+            <FormLabel>Lastname</FormLabel>
 
-          <div className="sm:col-span-2">
-            <Textarea
-              label="Your message"
-              name="message"
-              placeholder="This is not 'nam. This is bowling. There are rules."
-              isRequired
-              isDisabled={state?.success}
-              errorMessage={state?.errors?.message?._errors}
-            />
-          </div>
+            <FormControl>
+              <Input placeholder="Sobchack" />
+            </FormControl>
+
+            <FormMessage />
+          </FormItem>
+
+          <FormItem className="col-span-2">
+            <FormLabel>Company</FormLabel>
+
+            <FormControl>
+              <Input placeholder="Hollywood Star Lanes" />
+            </FormControl>
+
+            <FormMessage />
+          </FormItem>
+
+          <FormItem className="col-span-2">
+            <FormLabel>Email</FormLabel>
+
+            <FormControl>
+              <Input placeholder="walter.sobchack@overtheline.com" />
+            </FormControl>
+
+            <FormMessage />
+          </FormItem>
+
+          <FormItem className="col-span-2">
+            <FormLabel>Message</FormLabel>
+
+            <FormControl>
+              <Textarea placeholder="This is not 'nam, this is bowling. There are rules." />
+            </FormControl>
+
+            <FormMessage />
+          </FormItem>
         </div>
 
-        <div className="mt-4 flex justify-end">
-          {state?.success ? (
-            <Button
-              color="success"
-              variant="bordered"
-              disableRipple
-              disableAnimation
-              endContent={<HeartIcon className="w-6" />}
-              size="sm"
-            >
-              Thanks for your message!
-            </Button>
-          ) : (
-            <SubmitButton />
-          )}
+        <div className="flex justify-end mt-4">
+          <Button type="submit">
+            <EnvelopeIcon className="w-6 mr-2" />
+            Send
+          </Button>
         </div>
       </form>
     </div>
-  )
-}
-
-const SubmitButton: React.FC = () => {
-  const { pending } = useFormStatus()
-
-  return pending ? (
-    <Button type="submit" color="primary" size="md" isDisabled isLoading>
-      Sending
-    </Button>
-  ) : (
-    <Button
-      type="submit"
-      color="primary"
-      size="md"
-      startContent={<EnvelopeIcon className="w-6" />}
-    >
-      Send
-    </Button>
   )
 }
