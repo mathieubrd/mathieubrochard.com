@@ -20,11 +20,11 @@ const contactFormSchema = z.object({
 	company: z.string().optional(),
 })
 
-type ContactForm = z.infer<typeof contactFormSchema>
+export type ContactFormData = z.infer<typeof contactFormSchema>
 
 type SubmitContactFormResult = {
 	success: boolean
-	errors?: ZodFormattedError<ContactForm>
+	errors?: ZodFormattedError<ContactFormData>
 }
 
 export const submitContactForm = async (
