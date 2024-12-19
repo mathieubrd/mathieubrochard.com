@@ -21,8 +21,8 @@
 		"@vercel/analytics": "^1.4.1",
 		"@vercel/speed-insights": "^1.1.0",
 		"clsx": "^2.1.1",
-		"framer-motion": "^11.14.1",
-		"next": "^15.1.0",
+		"framer-motion": "^11.15.0",
+		"next": "^15.1.1",
 		"react": "^19",
 		"react-dom": "^19",
 		"react-turnstile": "^1.1.4",
@@ -31,21 +31,21 @@
 		"zod": "^3.24.1"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^19.6.0",
+		"@commitlint/cli": "^19.6.1",
 		"@commitlint/config-conventional": "^19.6.0",
 		"@types/node": "^22",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
 		"autoprefixer": "^10.4.20",
-		"eslint": "9.16.0",
-		"eslint-config-next": "15.1.0",
+		"eslint": "9.17.0",
+		"eslint-config-next": "15.1.1",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-unused-imports": "^4.1.4",
 		"husky": "^9.1.7",
 		"lint-staged": "^15.2.11",
 		"postcss": "^8.4.49",
 		"prettier": "3.4.2",
-		"tailwindcss": "^3.4.16",
+		"tailwindcss": "^3.4.17",
 		"typescript": "^5"
 	}
 }
