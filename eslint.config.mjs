@@ -1,4 +1,5 @@
 import { FlatCompat } from "@eslint/eslintrc"
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 
 const compat = new FlatCompat({
 	// import.meta.dirname is available after Node.js v20.11.0
@@ -7,8 +8,9 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
 	...compat.config({
-		extends: ["next"],
+		extends: ["next", "prettier"],
 	}),
+    eslintPluginPrettierRecommended
 ]
 
 export default eslintConfig
