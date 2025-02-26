@@ -43,30 +43,6 @@ export const Skills: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
 		<div className={clsx(className, "grid grid-cols-2 gap-y-6 gap-x-6")}>
 			<Skill
 				className="md:col-span-1 col-span-full"
-				title="AWS Solutions Architect"
-				icon={<CloudIcon className="w-6 h-6 text-blue-600" />}
-				techs={[
-					"Organizations",
-					"Lambda",
-					"API Gateway",
-					"ECS",
-					"DynamoDB",
-					"RDS",
-					"CloudFormation",
-					"CDK",
-				]}
-			>
-				<ul className="list-none">
-					<li>- Landing Zone Architecture</li>
-					<li>- Application Migration to AWS</li>
-					<li>- Serverless Technologies (Lambda, Fargate, ...)</li>
-					<li>- Network Infrastructure</li>
-					<li>- DevOps Methodology, Infrastructure-as-Code, SRE.</li>
-				</ul>
-			</Skill>
-
-			<Skill
-				className="md:col-span-1 col-span-full"
 				title="Full-Stack Developer"
 				icon={<Square3Stack3DIcon className="w-6 h-6 text-blue-600" />}
 				techs={[
@@ -85,6 +61,29 @@ export const Skills: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
 					<li>- Web Application Development (React)</li>
 					<li>- Clean Architecture, Domain-Driven Development</li>
 					<li>- CI/CD, Continuous Monitoring, ...</li>
+				</ul>
+			</Skill>
+
+			<Skill
+				className="md:col-span-1 col-span-full"
+				title="AWS Solutions Architect"
+				icon={<CloudIcon className="w-6 h-6 text-blue-600" />}
+				techs={[
+					"Lambda",
+					"API Gateway",
+					"ECS",
+					"DynamoDB",
+					"RDS",
+					"CloudFormation",
+					"CDK",
+				]}
+			>
+				<ul className="list-none">
+					<li>- Landing Zone Architecture</li>
+					<li>- Application Migration to AWS</li>
+					<li>- Serverless Technologies (Lambda, Fargate, ...)</li>
+					<li>- Network Infrastructure</li>
+					<li>- DevOps Methodology, Infrastructure-as-Code, SRE.</li>
 				</ul>
 			</Skill>
 		</div>
