@@ -2,7 +2,7 @@
 
 import { submitContactForm } from "@/app/actions"
 import { EnvelopeIcon, RocketLaunchIcon } from "@heroicons/react/24/solid"
-import { Button, ButtonProps, Input, Textarea } from "@nextui-org/react"
+import { Button, ButtonProps, Input, Textarea } from "@heroui/react"
 import clsx from "clsx"
 import { useFormState, useFormStatus } from "react-dom"
 import { TurnstileWidget } from "./TurnstileWidget"

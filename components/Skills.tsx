@@ -1,4 +1,4 @@
-import { Card, CardBody, CardFooter, CardHeader, Chip } from "@nextui-org/react"
+import { Card, CardBody, CardFooter, CardHeader, Chip } from "@heroui/react"
 import clsx from "clsx"
 import { CloudIcon, Square3Stack3DIcon } from "@heroicons/react/24/solid"
 

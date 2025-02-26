@@ -1,6 +1,6 @@
 import capgeminiLogo from "@/public/capgemini.png"
 import sopraSteriaLogo from "@/public/sopra-steria.png"
-import { Chip } from "@nextui-org/react"
+import { Chip } from "@heroui/react"
 import clsx from "clsx"
 import Image, { StaticImageData } from "next/image"
 

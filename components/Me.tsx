@@ -1,5 +1,5 @@
 import { MapPinIcon } from "@heroicons/react/24/solid"
-import { Avatar } from "@nextui-org/react"
+import { Avatar } from "@heroui/react"
 import { GitHubIcon } from "./GitHubIcon"
 import me from "@/public/me.png"
 import { LinkedInIcon } from "./LinkedInIcon"

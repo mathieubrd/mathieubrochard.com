@@ -2,7 +2,7 @@
 
 import { ChevronDoubleDownIcon } from "@heroicons/react/24/solid"
 import { EnvelopeIcon } from "@heroicons/react/24/solid"
-import { Button, ButtonProps } from "@nextui-org/react"
+import { Button, ButtonProps } from "@heroui/react"
 import clsx from "clsx"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"

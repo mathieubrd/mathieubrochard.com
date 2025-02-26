@@ -1,4 +1,4 @@
-import { Button, ButtonProps, Link } from "@nextui-org/react"
+import { Button, ButtonProps, Link } from "@heroui/react"
 import clsx from "clsx"
 import { ReactNode } from "react"
 
