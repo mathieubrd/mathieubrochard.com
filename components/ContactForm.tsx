@@ -4,9 +4,9 @@ import { submitContactForm } from "@/app/actions"
 import { EnvelopeIcon, RocketLaunchIcon } from "@heroicons/react/24/solid"
 import { Button, ButtonProps, Input, Textarea } from "@heroui/react"
 import clsx from "clsx"
-import { useFormState, useFormStatus } from "react-dom"
+import { useFormStatus } from "react-dom"
 import { TurnstileWidget } from "./TurnstileWidget"
-import { useState } from "react"
+import { useActionState, useState } from "react"
 
 type ContactFormProps = {} & React.HTMLAttributes<HTMLDivElement>
 
@@ -14,7 +14,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   className,
   ...props
 }) => {
-  const [state, formAction] = useFormState(submitContactForm, null)
+  const [state, formAction] = useActionState(submitContactForm, null)
   const [turnstileValid, setTurnstileValid] = useState(false)
 
   return (
