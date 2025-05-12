@@ -14,7 +14,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   className,
   ...props
 }) => {
-  const [state, formAction] = useActionState(submitContactForm, null)
+  const [state, formAction, isPending] = useActionState(submitContactForm, null)
   const [turnstileValid, setTurnstileValid] = useState(false)
 
   return (
@@ -108,7 +108,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               Thanks for your message!
             </Button>
           ) : (
-            <SubmitButton disabled={!turnstileValid} />
+            <SubmitButton disabled={!turnstileValid} sending={isPending} />
           )}
         </div>
       </form>
@@ -116,10 +116,11 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   )
 }
 
-const SubmitButton: React.FC<ButtonProps> = ({ ...props }) => {
-  const { pending } = useFormStatus()
-
-  return pending ? (
+const SubmitButton: React.FC<ButtonProps & { sending?: boolean }> = ({
+  sending,
+  ...props
+}) => {
+  return sending ? (
     <Button
       type="submit"
       color="primary"
