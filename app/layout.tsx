@@ -12,7 +12,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        <title>Mathieu Brochard - AWS Solutions Architect</title>
+        <title>Mathieu Brochard - Software Engineer</title>
         <meta
           name="description"
           content="Personal portfolio of Mathieu Brochard - AWS Solutions Architect"
