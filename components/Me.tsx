@@ -25,9 +25,9 @@ export const Me: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
 
       <div className="mb-4">
         <p className="text-default-500 text-justify">
-          Hello 👋 I&apos;m Mathieu, AWS Architect and Software Engineer,
-          specializing in serverless technologies. Passionate about designing
-          scalable and efficient cloud solutions, I combine my knowledge of AWS
+          Hello 👋 I&apos;m Mathieu, a Software Engineer & Cloud Architect.
+          I just want to build the best software that bring value to customers.
+          Passionate about designing scalable and efficient cloud solutions, I combine my knowledge of AWS
           with a DevOps approach to drive innovation in serverless computing.
         </p>
       </div>
