@@ -27,14 +27,14 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-turnstile": "^1.1.4",
-    "resend": "^4.1.1",
+    "resend": "^6.1.0",
     "sharp": "^0.33.5",
-    "zod": "^3.24.1"
+    "zod": "^4.1.11"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.6.1",
-    "@commitlint/config-conventional": "^19.6.0",
-    "@types/node": "^22",
+    "@commitlint/cli": "^20.0.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@types/node": "^24",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.4.20",
@@ -44,7 +44,7 @@
     "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-unused-imports": "^4.1.4",
     "husky": "^9.1.7",
-    "lint-staged": "^15.4.1",
+    "lint-staged": "^16.2.1",
     "postcss": "^8.5.3",
     "prettier": "3.4.2",
     "tailwindcss": "^4.1.6",
