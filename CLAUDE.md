@@ -4,9 +4,9 @@ Personal portfolio website for Mathieu Brochard, Software Engineer.
 
 ## Tech Stack
 
-- **Framework**: Next.js 15 (App Router) with React 19 and TypeScript
+- **Framework**: Next.js 16 (App Router) with React 19 and TypeScript
 - **Styling**: Tailwind CSS 4 (CSS-based config in `app/globals.css`)
-- **UI Library**: HeroUI (v2 beta) + Heroicons
+- **UI Library**: HeroUI (v3 beta) + Heroicons
 - **Animations**: Framer Motion
 - **Email**: Resend
 - **CAPTCHA**: Cloudflare Turnstile
@@ -17,11 +17,10 @@ Personal portfolio website for Mathieu Brochard, Software Engineer.
 
 ```
 app/            → Next.js App Router (single-page site)
-  layout.tsx    → Root layout (dark mode, HeroUI provider, analytics)
+  layout.tsx    → Root layout (dark mode, analytics)
   page.tsx      → Home page composing all sections
-  globals.css   → Tailwind 4 config, HeroUI theme, custom plugin
+  globals.css   → Tailwind 4 config, HeroUI styles
   actions.ts    → Server actions (contact form submission)
-  hero.ts       → Custom Tailwind plugin
 components/     → React components (PascalCase filenames)
 public/         → Static assets (images, logos)
 ```
@@ -62,3 +61,7 @@ public/         → Static assets (images, logos)
 - `TURNSTILE_SECRET_KEY` — Cloudflare Turnstile secret
 - `NEXT_PUBLIC_TURNSTILE_SITEKEY` — Cloudflare Turnstile site key (public)
 - Dev mode uses test keys for Turnstile and a test email address
+
+## Agent Instructions
+
+- Always use Context7 MCP when I need library/API documentation, code generation, setup or configuration steps without me having to explicitly ask.

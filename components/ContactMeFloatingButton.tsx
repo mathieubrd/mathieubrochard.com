@@ -2,16 +2,21 @@
 
 import { ChevronDoubleDownIcon } from "@heroicons/react/24/solid"
 import { EnvelopeIcon } from "@heroicons/react/24/solid"
-import { Button, ButtonProps } from "@heroui/react"
+import { Button } from "@heroui/react"
 import clsx from "clsx"
 import { motion } from "framer-motion"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 
-export const ContactMeFloatingButton: React.FC<ButtonProps> = ({
-  className,
-  ...props
-}) => {
+export const ContactMeFloatingButton: React.FC<{
+  className?: string
+}> = ({ className }) => {
   const [shouldShow, setShouldShow] = useState(true)
+
+  const computeShouldShow = useCallback(() => {
+    setShouldShow(
+      window.scrollY + window.innerHeight <= document.body.scrollHeight - 100,
+    )
+  }, [])
 
   useEffect(() => {
     window.addEventListener("scroll", computeShouldShow)
@@ -19,19 +24,13 @@ export const ContactMeFloatingButton: React.FC<ButtonProps> = ({
     return () => {
       window.removeEventListener("scroll", computeShouldShow)
     }
-  }, [])
+  }, [computeShouldShow])
 
   const onClick = () => {
     window.scrollTo({
       top: document.body.scrollHeight,
       behavior: "smooth",
     })
-  }
-
-  const computeShouldShow = () => {
-    setShouldShow(
-      window.scrollY + window.innerHeight <= document.body.scrollHeight - 100,
-    )
   }
 
   return (
@@ -44,18 +43,16 @@ export const ContactMeFloatingButton: React.FC<ButtonProps> = ({
       )}
     >
       <Button
-        onClick={onClick}
+        onPress={onClick}
         size="lg"
-        radius="full"
-        startContent={<EnvelopeIcon className="w-6" />}
-        endContent={<ChevronDoubleDownIcon className="w-6" />}
         className={clsx(
-          "bg-gradient-to-tr from-pink-500 to-yellow-500",
+          "rounded-full bg-gradient-to-tr from-pink-500 to-yellow-500",
           className,
         )}
-        {...props}
       >
+        <EnvelopeIcon className="w-5" />
         Contact Me
+        <ChevronDoubleDownIcon className="w-5" />
       </Button>
     </motion.div>
   )
