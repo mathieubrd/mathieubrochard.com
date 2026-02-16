@@ -1,5 +1,5 @@
 import { MapPinIcon } from "@heroicons/react/24/solid"
-import { Avatar } from "@heroui/react"
+import { Avatar, AvatarImage, AvatarFallback } from "@heroui/react"
 import { GitHubIcon } from "./GitHubIcon"
 import me from "@/public/me.png"
 import { LinkedInIcon } from "./LinkedInIcon"
@@ -11,7 +11,10 @@ export const Me: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   return (
     <div className={className}>
       <div className="flex mb-4">
-        <Avatar showFallback src={me.src} className="mr-4" isBordered />
+        <Avatar className="mr-4 ring-2 ring-default-200">
+          <AvatarImage src={me.src} />
+          <AvatarFallback>MB</AvatarFallback>
+        </Avatar>
 
         <div className="flex flex-col">
           <p className="font-semibold">Mathieu Brochard</p>

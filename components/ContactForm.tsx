@@ -2,9 +2,15 @@
 
 import { submitContactForm } from "@/app/actions"
 import { EnvelopeIcon, RocketLaunchIcon } from "@heroicons/react/24/solid"
-import { Button, ButtonProps, Input, Textarea } from "@heroui/react"
+import {
+  Button,
+  TextField,
+  Input,
+  TextArea,
+  Label,
+  FieldError,
+} from "@heroui/react"
 import clsx from "clsx"
-import { useFormStatus } from "react-dom"
 import { TurnstileWidget } from "./TurnstileWidget"
 import { useActionState, useState } from "react"
 
@@ -21,67 +27,83 @@ export const ContactForm: React.FC<ContactFormProps> = ({
     <div className={clsx(className, "w-full")} {...props}>
       <form action={formAction} className="mx-auto">
         <div className="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2">
-          <Input
-            type="text"
-            name="firstName"
-            autoComplete="given-name"
-            placeholder="Walter"
-            label="First name"
+          <TextField
             isRequired
             isDisabled={state?.success}
-            errorMessage={state?.errors?.firstName?._errors}
-            size="sm"
-          />
-
-          <Input
-            type="text"
-            name="lastName"
-            autoComplete="family-name"
-            placeholder="Sobchack"
-            label="Last name"
-            isRequired
-            isDisabled={state?.success}
-            errorMessage={state?.errors?.lastName?._errors}
-            size="sm"
-          />
-
-          <div className="sm:col-span-2">
+            isInvalid={!!state?.errors?.firstName}
+          >
+            <Label>First name</Label>
             <Input
               type="text"
-              name="company"
-              autoComplete="organization"
-              label="Company"
-              placeholder="Hollywood Star Lanes"
-              isDisabled={state?.success}
-              errorMessage={state?.errors?.company?._errors}
-              size="sm"
+              name="firstName"
+              autoComplete="given-name"
+              placeholder="Walter"
             />
-          </div>
+            <FieldError>{state?.errors?.firstName?._errors}</FieldError>
+          </TextField>
 
-          <div className="sm:col-span-2">
+          <TextField
+            isRequired
+            isDisabled={state?.success}
+            isInvalid={!!state?.errors?.lastName}
+          >
+            <Label>Last name</Label>
             <Input
-              type="email"
-              name="email"
-              autoComplete="email"
-              placeholder="walter.sobchak@overtheline.com"
-              label="email"
-              isRequired
-              isDisabled={state?.success}
-              errorMessage={state?.errors?.email?._errors}
-              size="sm"
+              type="text"
+              name="lastName"
+              autoComplete="family-name"
+              placeholder="Sobchack"
             />
+            <FieldError>{state?.errors?.lastName?._errors}</FieldError>
+          </TextField>
+
+          <div className="sm:col-span-2">
+            <TextField
+              isDisabled={state?.success}
+              isInvalid={!!state?.errors?.company}
+            >
+              <Label>Company</Label>
+              <Input
+                type="text"
+                name="company"
+                autoComplete="organization"
+                placeholder="Hollywood Star Lanes"
+              />
+              <FieldError>{state?.errors?.company?._errors}</FieldError>
+            </TextField>
           </div>
 
           <div className="sm:col-span-2">
-            <Textarea
-              label="Your message"
-              name="message"
-              placeholder="This is not 'nam. This is bowling. There are rules."
+            <TextField
               isRequired
-              minRows={5}
               isDisabled={state?.success}
-              errorMessage={state?.errors?.message?._errors}
-            />
+              isInvalid={!!state?.errors?.email}
+            >
+              <Label>Email</Label>
+              <Input
+                type="email"
+                name="email"
+                autoComplete="email"
+                placeholder="walter.sobchak@overtheline.com"
+              />
+              <FieldError>{state?.errors?.email?._errors}</FieldError>
+            </TextField>
+          </div>
+
+          <div className="sm:col-span-2">
+            <TextField
+              isRequired
+              isDisabled={state?.success}
+              isInvalid={!!state?.errors?.message}
+            >
+              <Label>Your message</Label>
+              <TextArea
+                name="message"
+                placeholder="This is not 'nam. This is bowling. There are rules."
+                rows={5}
+              />
+              <FieldError>{state?.errors?.message?._errors}</FieldError>
+            </TextField>
           </div>
 
           {state?.errors?.["cf-turnstile-response"] && (
@@ -98,14 +120,12 @@ export const ContactForm: React.FC<ContactFormProps> = ({
         <div className="mt-4 flex justify-end">
           {state?.success ? (
             <Button
-              color="success"
-              variant="bordered"
-              disableRipple
-              disableAnimation
-              endContent={<RocketLaunchIcon className="w-6" />}
-              size="sm"
+              variant="outline"
+              className="border-success text-success"
+              isDisabled
             >
               Thanks for your message!
+              <RocketLaunchIcon className="w-5" />
             </Button>
           ) : (
             <SubmitButton disabled={!turnstileValid} sending={isPending} />
@@ -116,29 +136,17 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   )
 }
 
-const SubmitButton: React.FC<ButtonProps & { sending?: boolean }> = ({
+const SubmitButton: React.FC<{ disabled?: boolean; sending?: boolean }> = ({
   sending,
-  ...props
+  disabled,
 }) => {
   return sending ? (
-    <Button
-      type="submit"
-      color="primary"
-      size="md"
-      isDisabled
-      isLoading
-      {...props}
-    >
-      Sending
+    <Button type="submit" variant="primary" size="md" isDisabled>
+      Sending...
     </Button>
   ) : (
-    <Button
-      type="submit"
-      color="primary"
-      size="md"
-      startContent={<EnvelopeIcon className="w-6" />}
-      {...props}
-    >
+    <Button type="submit" variant="primary" size="md" isDisabled={disabled}>
+      <EnvelopeIcon className="w-5" />
       Send
     </Button>
   )

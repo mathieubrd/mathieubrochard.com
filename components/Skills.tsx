@@ -1,4 +1,4 @@
-import { Card, CardBody, CardFooter, CardHeader, Chip } from "@heroui/react"
+import { Card, CardContent, CardFooter, CardHeader, Chip } from "@heroui/react"
 import clsx from "clsx"
 import { CloudIcon, Square3Stack3DIcon } from "@heroicons/react/24/solid"
 
@@ -27,7 +27,7 @@ const Skill: React.FC<SkillProps> = ({
         <h2 className="text-lg font-semibold">{title}</h2>
       </CardHeader>
 
-      <CardBody>{children}</CardBody>
+      <CardContent>{children}</CardContent>
 
       <CardFooter>
         <div className="flex flex-wrap gap-x-2 gap-y-2">{techChips}</div>
